@@ -7,3 +7,7 @@
 body {
   background-color: #fefefe;
 }
+
+main {
+  margin: 1rem 5rem;
+}
