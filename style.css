@@ -7,3 +7,18 @@
 body {
   background-color: #fefefe;
 }
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: lightgray;
+
+  img {
+    width: 8%;
+  }
+
+  div {
+    width: 45vw;
+  }
+}
