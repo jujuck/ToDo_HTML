@@ -11,9 +11,9 @@ const data = [
   {
     id: 1,
     status: "En cours",
-    description: "Live demo To DO avec le DOM",
+    description: "Live demo To DO avec le DOM, injection d'élément",
     category: "boulot",
-    deadline: "15/04/2024",
+    deadline: "12/04/2024",
   },
   {
     id: 2,
@@ -25,25 +25,59 @@ const data = [
   {
     id: 3,
     status: "A faire",
-    description: "Penser à laiqsser du temps projet",
+    description: "Penser à laisser du temps projet",
+    category: "boulot",
+    deadline: "18/04/2024",
+  },
+  {
+    id: 4,
+    status: "En cours",
+    description: "Live demo To DO avec le DOM, filtre sur select",
+    category: "boulot",
+    deadline: "15/04/2024",
+  },
+  {
+    id: 5,
+    status: "En cours",
+    description: "Trail",
+    category: "sport",
+    deadline: "25/05/2024",
+  },
+  {
+    id: 6,
+    status: "A faire",
+    description: "Exo pour réviser le DOM",
     category: "boulot",
     deadline: "18/04/2024",
   },
 ];
 
 const app = document.getElementById("app");
-console.log(app);
+
+const css = {
+  "En cours": "blue",
+  "A faire": "green",
+  "En pause": "yellow",
+};
+
+const img = {
+  sport: "./assets/isport-100.png",
+  maison: "./assets/ihome-100.png",
+  boulot: "./assets/iwork-100.png",
+};
 
 const createCard = (cardInfo) => {
-  console.log(cardInfo);
   const section = document.createElement("section");
-  const template = `<div class="status" id=${cardInfo.id}>
+  const template = `<div class="status" style="background-color: ${
+    css[cardInfo.status]
+  }" id=${cardInfo.id}>
     <h4>${cardInfo.status}</h4>
   </div>
   <div class="description">
     <h3>${cardInfo.description}</h3>
   </div>
   <div class="category">
+    <img src="${img[cardInfo.category]}" alt="${cardInfo.category}" />
     <p>${cardInfo.category}</p>
   </div>
   <div class="deadline">

@@ -23,7 +23,7 @@ header {
     width: 45vw;
   }
 }
-  
+
 main {
   margin: 1rem 5rem;
 
@@ -33,6 +33,7 @@ main {
     border-radius: 2rem;
     padding: 0.5rem 1rem;
     background-color: lightgray;
+    margin: 1rem 0;
 
     div {
       margin: 0.2rem;
@@ -54,9 +55,10 @@ main {
 
     .trash {
       text-align: right;
-      img {
-        width: 1.5rem;
-      }
+    }
+
+    img {
+      width: 1.5rem;
     }
   }
 }
