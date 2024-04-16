@@ -13,6 +13,21 @@
         <h1>LISTE à faire</h1>
       </div>
     </header>
+    <section class="todo-filter">
+      <label for="status">
+        Filtrer par statut :
+        <select name="status" id="status">
+          <option value="">Toutes les to do</option>
+          <option value="A faire">A faire</option>
+          <option value="En cours">En cours</option>
+          <option value="En pause">En pause</option>
+        </select>
+      </label>
+      <label for="status">
+        Filtrer par description :
+        <input type="text" id="description" />
+      </label>
+    </section>
     <main id="app">
       <!-- Insertion des templates (append)-->
     </main>

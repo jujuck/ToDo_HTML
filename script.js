@@ -52,6 +52,9 @@ const data = [
   },
 ];
 
+let status = "";
+let descriptionValue = "";
+
 const app = document.getElementById("app");
 
 const css = {
@@ -75,7 +78,11 @@ const createCard = (cardInfo) => {
   </div>
   <div class="description">
     <h3>${cardInfo.description}</h3>
+    <div>
+        <button onclick="updateText(${cardInfo.id})">Modifié <button/>
+    </div>
   </div>
+
   <div class="category">
     <img src="${img[cardInfo.category]}" alt="${cardInfo.category}" />
     <p>${cardInfo.category}</p>
@@ -95,10 +102,38 @@ const createCard = (cardInfo) => {
   return section;
 };
 
-// const newCard = createCard();
-// app.appendChild(newCard);
+const updateText = (id) => {
+  data[id].description += " Modifié";
+  render();
+};
 
-for (let i = 0; i < data.length; i++) {
-  const newCard = createCard(data[i]);
-  app.appendChild(newCard);
-}
+const render = () => {
+  app.innerHTML = "";
+  for (let i = 0; i < data.length; i++) {
+    if (
+      (status === data[i].status || status === "") &&
+      data[i].description.toLowerCase().includes(descriptionValue.toLowerCase())
+    ) {
+      const newCard = createCard(data[i]);
+      app.appendChild(newCard);
+    }
+  }
+
+  //Remettre les écouteurs en place
+};
+
+/** Gestion de la valeur du filter par status */
+const selectStatus = document.getElementById("status");
+selectStatus.addEventListener("change", (event) => {
+  status = event.target.value;
+  render();
+});
+
+/** Gestion du filtre sur description */
+const descriptionInput = document.getElementById("description");
+descriptionInput.addEventListener("input", (id) => {
+  descriptionValue = event.target.value;
+  render();
+});
+
+render();
